@@ -24,6 +24,14 @@ public class Transaction {
     private String calculateHash(){
         sequence++;
         return StringUtil.applySha256(StringUtil.getStringFromKey(sender) + StringUtil.getStringFromKey(reciever) + Float.toString(value) + sequence);
+    }
+    public void generateSignature(PrivateKey privateKey){
+        String data = StringUtil.getStringFromKey(sender) + StringUtil.getStringFromKey(reciever) + Float.toString(value);
+        signature = StringUtil.applyEDSASASign(privateKey, data);
+    }
 
+    public boolean verifySignature(){
+        String data = StringUtil.getStringFromKey(sender) + StringUtil.getStringFromKey(reciever) + Float.toString(value);
+        return StringUtil.verifyECDSASign(sender, data, signature);
     }
 }
