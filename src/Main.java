@@ -11,6 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+        //Creating Wallets
         Wallet walletA = new Wallet();
         Wallet walletB = new Wallet();
 
