@@ -1,13 +1,15 @@
 import java.security.Security;
 import java.util.ArrayList;
-import com.google.gson.GsonBuilder;
-import org.bouncycastle.*;
+import java.util.HashMap;
 
-public class Main {
+public class SomeCoin {
     public static ArrayList<Block> blockChain = new ArrayList<Block>();
+    public static HashMap<String, TransactionOutput> UTXOs = new HashMap<String, TransactionOutput>();
     public static int difficulty = 5;
     public static Wallet walletA;
     public static Wallet walletB;
+    public static float minimumTransaction = 0.1f;
+    public static Transaction genesisTransaction;
 
     public static void main(String[] args) {
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
