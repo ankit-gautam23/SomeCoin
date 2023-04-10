@@ -70,6 +70,6 @@ public class StringUtil {
         return merkleRoot;
     }
     public static String getDifficultyString(int difficulty){
-        return Integer.toString(difficulty);
+        return new String(new char[difficulty]).replace('\0', '0');
     }
 }

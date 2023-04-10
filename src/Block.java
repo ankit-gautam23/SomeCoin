@@ -31,7 +31,7 @@ public class Block {
     }
     public boolean addTransaction(Transaction transaction) {
         if(transaction == null) return false;
-        if((prevHash != "0")) {
+        if((!"0".equals(prevHash))) {
             if((transaction.processTransaction() != true)) {
                 System.out.println("Transaction failed to process. Discarded.");
                 return false;
