@@ -21,6 +21,7 @@ public class SomeCoin {
         walletB = new Wallet();
         Wallet coinbase = new Wallet();
 
+        //Initiating Transactions
         genesisTransaction = new Transaction(coinbase.publicKey, walletA.publicKey, 100f, null);
         genesisTransaction.generateSignature(coinbase.privateKey);	 //manually sign the genesis transaction
         genesisTransaction.transactionId = "0"; //manually set the transaction id
